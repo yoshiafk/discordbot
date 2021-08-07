@@ -55,11 +55,12 @@ def webhook(webhook_url, html):
     data["embeds"] = []
     embed = {}
     embed["color"] = 15467852
-    embed["title"] = "New pic of @"+INSTAGRAM_USERNAME+""
+    embed["title"] = "New Posting from 💖Ashel"
     embed["url"] = "https://www.instagram.com/p/" + \
         get_last_publication_url(html)+"/"
     embed["description"] = get_description_photo(html)
-    embed["image"] = {"url":get_last_thumb_url(html)} # unmark to post bigger image
+    # unmark to post bigger image
+    embed["image"] = {"url": get_last_thumb_url(html)}
     # embed["thumbnail"] = {"url": get_last_thumb_url(html)}
     data["embeds"].append(embed)
     result = requests.post(webhook_url, data=json.dumps(
@@ -101,6 +102,6 @@ if __name__ == "__main__":
     if INSTAGRAM_USERNAME != None and WEBHOOK_URL != None:
         while True:
             main()
-            time.sleep(float(TIME_INTERVAL or 600)) # 600 = 10 minutes
+            time.sleep(float(TIME_INTERVAL or 600))  # 600 = 10 minutes
     else:
         print('Please configure environment variables properly!')

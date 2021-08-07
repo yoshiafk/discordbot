@@ -55,7 +55,7 @@ def webhook(webhook_url, html):
     data["embeds"] = []
     embed = {}
     embed["color"] = 15467852
-    embed["title"] = "New Posting from 💖Ashel"
+    embed["title"] = "New Post from 💖Ashel"
     embed["url"] = "https://www.instagram.com/p/" + \
         get_last_publication_url(html)+"/"
     embed["description"] = get_description_photo(html)
